@@ -1,0 +1,25 @@
+.attribute-list {
+    border-style: solid;
+    border-radius: 5px;
+    padding-inline-start: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-height: 2rem;
+  }
+
+  .attribute-button {
+    background-color: transparent;
+    border-radius: 1rem;
+    margin: 0.2rem;
+  }
+
+  .attribute-wrapper {
+    border-style: groove;
+    border-radius: 5px;
+  }
+
+  .modifier-list {
+    margin: 1rem;
+    font-weight: 600;
+  }

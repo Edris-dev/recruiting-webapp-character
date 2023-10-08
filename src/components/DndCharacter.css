@@ -1,0 +1,15 @@
+.dnd-wrapper {
+    display: grid;
+    grid-template-columns: 1fr 0.5fr 1.2fr;
+    max-width: 80%;
+    margin: auto;
+    margin-block-start: 3rem;
+    background-color: rgb(223, 219, 229, 0.8);
+  }
+
+.spanning-button{
+  grid-column: span 3;
+    padding: 5px;
+    border-radius: 5px;
+    cursor: pointer;
+}

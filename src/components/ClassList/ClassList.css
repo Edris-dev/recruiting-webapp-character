@@ -1,0 +1,30 @@
+.class-list {
+    cursor: pointer;
+    border-style: outset;
+    border-radius: 5px;
+  }
+  .active {
+    background-color: aquamarine;
+  }
+
+  .inactive {
+    background-color: bisque;
+  }
+
+  .class-wrapper {
+    border-style: groove;
+    border-radius: 5px;
+  }
+
+  .requirement-list {
+    margin: 0.1rem;
+    font-weight: 700;
+    font-style: italic;
+  }
+
+  .requirements-wrapper {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+  }
