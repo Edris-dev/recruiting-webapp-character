@@ -105,6 +105,7 @@ export default function DndCharacter({id, dndData, savePlayerInfo}) {
   }, [modifier]);
 
   const saveCharacter = () => {
+    setSavePrompt(false)
     const characterToSave = {
       id,
       attributes,
@@ -115,10 +116,17 @@ export default function DndCharacter({id, dndData, savePlayerInfo}) {
     savePlayerInfo(characterToSave);
   }
 
+  const [savePrompt, setSavePrompt] = useState(false)
+
+  useEffect(() => {
+    setSavePrompt(true)
+
+  },[attributes,playerSkills])
+
   return (
 
       <div className="dnd-wrapper">
-        <button className="spanning-button" onClick={saveCharacter}> Save </button>
+        <button className={`spanning-button ${savePrompt ? 'save' : ''}`} onClick={saveCharacter}> Save </button>
         <AttributeList
           updateAttributes={updateAttributes}
           attributes={attributes}

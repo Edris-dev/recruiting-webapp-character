@@ -51,6 +51,34 @@ export default function App() {
 
   }
 
+  const resetGame = async() => {
+    const userConfirmed = window.confirm("Are you sure you want to delete all exisiting characters?");
+
+    if(userConfirmed){
+      try{
+        await setCharacters([]);
+        fetch(POLICY_ME_URL,{
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify([]),
+        })
+        .then((resp) => {
+          if (!resp.ok){
+            throw new Error(`HTTP Error!`)
+          }else{
+            console.log("Sucesfully Sent!")
+          }
+        }
+        )
+      }catch(err){
+        console.log({ err });
+      }
+    }
+
+  }
+
   const getCharacterData = async () => {
     try{
       const resp = await fetch(POLICY_ME_URL)
@@ -67,9 +95,12 @@ export default function App() {
     getCharacterData()
   }, [])
 
+
+
   return (
     <div className="App">
       <button className="save-game" onClick={() => saveAllPlayers()} >Save Game </button>
+      <button className="reset-game" onClick={() => resetGame()} >Reset Game </button>
       {characters.map((data,i) => {
         return <DndCharacter key={i} id={data.id} dndData={data} savePlayerInfo={savePlayerInfo}/>;
       })}
